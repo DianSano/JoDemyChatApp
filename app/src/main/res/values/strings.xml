@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">JoDemy Chat App</string>
+    <string name="need_a_new_account">Need A New Account</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="default_status">Hi there, I am using JoDemy Chat App</string>
+</resources>

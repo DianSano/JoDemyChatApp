@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "857291865215",
+    "firebase_url": "https://jodemychatapp.firebaseio.com",
+    "project_id": "jodemychatapp",
+    "storage_bucket": "jodemychatapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:857291865215:android:dbd61a202b0a7e2b",
+        "android_client_info": {
+          "package_name": "id.co.blogspot.diansano.jodemychatapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "857291865215-tdhi3kp3epmtcee50eokidqidcesnnme.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "id.co.blogspot.diansano.jodemychatapp",
+            "certificate_hash": "1c7badc863c8986204712ec796331e98607feb7d"
+          }
+        },
+        {
+          "client_id": "857291865215-oi4obqjus8r8k1b1e75oqjvggr2o86sp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD8B0jN1zdFJM6nplungA31Gr3KmNWJlQM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "857291865215-oi4obqjus8r8k1b1e75oqjvggr2o86sp.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
