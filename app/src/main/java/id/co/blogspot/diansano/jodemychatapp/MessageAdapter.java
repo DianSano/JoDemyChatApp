@@ -1,6 +1,7 @@
 package id.co.blogspot.diansano.jodemychatapp;
 
 import android.graphics.Color;
+import android.text.format.DateFormat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,6 +19,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
 
+import java.util.Date;
 import java.util.List;
 
 import de.hdodenhof.circleimageview.CircleImageView;
@@ -75,6 +77,12 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MessageV
             viewHolder.messageText.setText(c.getMessage());
            // viewHolder.messageText.setVisibility(View.VISIBLE);
            // viewHolder.messageImage.setVisibility(View.INVISIBLE);
+            String longV = String.valueOf(c.getTime());
+            long millisecond = Long.parseLong(longV);
+            // or you already have long value of date, use this instead of milliseconds variable.
+            String timeMessage = DateFormat.format("dd/MM/yyyy - hh:mm", new Date(millisecond)).toString();
+
+            viewHolder.timeText.setText(timeMessage);
 
         } else {
 
@@ -117,6 +125,7 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MessageV
         public CircleImageView profileImage;
         public TextView displayName;
         public ImageView messageImage;
+        public TextView timeText;
 
         public MessageViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -124,6 +133,7 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MessageV
             profileImage = itemView.findViewById(R.id.message_profile_layout);
             displayName = itemView.findViewById(R.id.name_text_layout);
             messageImage = itemView.findViewById(R.id.message_image_layout);
+            timeText = itemView.findViewById(R.id.time_text_layout);
         }
     }
 }
