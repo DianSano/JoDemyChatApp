@@ -2,10 +2,14 @@ package id.co.blogspot.diansano.jodemychatapp;
 
 import android.graphics.Color;
 import android.text.format.DateFormat;
+import android.util.LayoutDirection;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -73,7 +77,30 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MessageV
         });
 
         if(message_type.equals("text")) {
+            mAuth = FirebaseAuth.getInstance();
+            String current_user_id = mAuth.getCurrentUser().getUid();
+           c = mMessageList.get(position);
 
+           from_user = c.getFrom();
+
+            if(from_user.equals(current_user_id)) {
+                RelativeLayout.LayoutParams params = new RelativeLayout.
+                        LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT,
+                        ViewGroup.LayoutParams.WRAP_CONTENT);
+                        params.setMarginStart(100);
+                        viewHolder.relativeLayout.setLayoutParams(params);
+
+                viewHolder.timeText.setLayoutParams(params);
+                //viewHolder.messageText.setGravity(Gravity.RIGHT);
+                viewHolder.messageText.setBackgroundColor(Color.WHITE);
+                viewHolder.messageText.setTextColor(Color.BLACK);
+
+            } else {
+
+                viewHolder.messageText.setBackgroundResource(R.drawable.message_text_background);
+                viewHolder.messageText.setTextColor(Color.WHITE);
+
+            }
             viewHolder.messageText.setText(c.getMessage());
            // viewHolder.messageText.setVisibility(View.VISIBLE);
            // viewHolder.messageImage.setVisibility(View.INVISIBLE);
@@ -121,6 +148,7 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MessageV
 
     public class MessageViewHolder extends RecyclerView.ViewHolder {
 
+        public RelativeLayout relativeLayout;
         public TextView messageText;
         public CircleImageView profileImage;
         public TextView displayName;
@@ -129,6 +157,7 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MessageV
 
         public MessageViewHolder(@NonNull View itemView) {
             super(itemView);
+            relativeLayout = itemView.findViewById(R.id.message_single_layout);
             messageText = itemView.findViewById(R.id.message_text_layout);
             profileImage = itemView.findViewById(R.id.message_profile_layout);
             displayName = itemView.findViewById(R.id.name_text_layout);
